@@ -26,7 +26,6 @@ public class BaseEnemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(endLocation.gameObject.name);
         if (collision.gameObject.name == endLocation.gameObject.name)
         {
             gameObject.SetActive(false);

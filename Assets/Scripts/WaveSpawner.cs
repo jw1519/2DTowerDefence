@@ -11,11 +11,15 @@ public class WaveSpawner : MonoBehaviour
 
     public IEnumerator SpawnWave(int amount)
     {
-        SpawnEnemy(amount);
-        yield return new WaitForSeconds(20f);
+        for (int i = 0; i < amount; i++)
+        {
+            SpawnEnemy();
+            new WaitForSeconds(5f);
+        }
         waveNumber++;
+        yield return null;
     }
-    public void SpawnEnemy(int amountToSpawn)
+    public void SpawnEnemy()
     {
         GameObject spawnedEnemy = EnemyPool.instance.SpawnFromPoolEnemy("Enemy", spawnPoint.position, Quaternion.identity); //change for different enemies
         if (spawnedEnemy != null)
@@ -23,7 +27,6 @@ public class WaveSpawner : MonoBehaviour
             spawnedEnemy.GetComponent<NavMeshAgent>().enabled = true;
             spawnedEnemy.transform.SetParent(enemyParent);
             spawnedEnemy.GetComponent<BaseEnemy>().endLocation = endPoint;
-
         }
     }
 }
