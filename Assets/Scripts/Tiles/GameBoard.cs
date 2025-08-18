@@ -32,19 +32,18 @@ public class GameBoard : MonoBehaviour
         int random = (int)Random.Range(1, height);
         for (int y = 0; y < height; y++)
         {
-            Debug.Log(y.ToString());
             for(int x = 0; x < width; x++)
             {
                 Vector2 pos = new Vector2(x, y) * spacing;
                 int index = Random.Range(0, tiles.Count);
                 if (y == random)
                 {
-                    Debug.Log("here");
                     GameObject instance = Instantiate(startTile.gameObject, pos, Quaternion.identity);
                     instance.transform.SetParent(tileParent);
                     instance.transform.position = pos;
                     instance.name = "Start";
                     random = (int)(height + 1);
+                    FindFirstObjectByType<WaveSpawner>().spawnPoint = instance.transform;
                 }
                 else
                 {

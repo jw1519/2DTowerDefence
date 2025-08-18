@@ -19,6 +19,17 @@ public class BaseEnemy : MonoBehaviour
     }
     private void Update()
     {
-        agent.SetDestination(endLocation.position);
+        if (endLocation != null)
+        {
+            agent.SetDestination(endLocation.position);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(endLocation.gameObject.name);
+        if (collision.gameObject.name == endLocation.gameObject.name)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     int round;
+    public int amountOfEnemiesToSpawn;
+    public WaveSpawner waveSpawner;
 
     public void NewGame()
     {
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
         GameBoard.instance.SetPathTiles();
         UIManager.instance.panels.Find(panel => panel.name == "GameUI").OpenPanel();
         round = 0;
+        amountOfEnemiesToSpawn = 5;
     }
     private void Update()
     {
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour
     public void NextRound()
     {
         round++;
-        //spawn enemies with intervals
+        amountOfEnemiesToSpawn = amountOfEnemiesToSpawn * 2;
+        //spawn enemies
+        StartCoroutine(waveSpawner.SpawnWave(amountOfEnemiesToSpawn));
     }
 }
