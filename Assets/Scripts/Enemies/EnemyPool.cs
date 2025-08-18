@@ -7,6 +7,7 @@ public class EnemyPool : MonoBehaviour
     public static EnemyPool instance;
     public List<GameObject> enemies;
     public int amountToPool;
+    public Transform enemyParent;
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> pooledDictionary;
@@ -36,6 +37,7 @@ public class EnemyPool : MonoBehaviour
             for (int i = 0; i < pool.amountToPool; i++)
             {
                 GameObject obj = Instantiate(pool.objectToPool);
+                obj.transform.SetParent(enemyParent);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }

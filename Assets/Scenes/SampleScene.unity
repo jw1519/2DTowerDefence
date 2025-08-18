@@ -266,10 +266,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   amountToPool: 0
+  enemyParent: {fileID: 726719673455876293}
   pools:
   - tag: Enemy
     objectToPool: {fileID: 8665230821622852591, guid: 8ba2c9949f8f2c248926349c8eb6f0d7, type: 3}
-    amountToPool: 100
+    amountToPool: 10
 --- !u!1 &373942578
 GameObject:
   m_ObjectHideFlags: 0

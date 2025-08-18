@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f8e3a7c3552d84049a3d54c06e76d7ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   rangePrefab: {fileID: 1820522572803730004}
   projectilePrefab: {fileID: 7949080288825190554, guid: daf5202a4751deb49a40b3381e8edd45, type: 3}
   range: 5
-  fireRate: 3
+  fireRate: 1
   damage: 1
   fireCountDown: 0
   firePoint: {fileID: 2335453744438557813}
