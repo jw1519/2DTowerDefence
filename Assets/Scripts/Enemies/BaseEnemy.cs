@@ -7,6 +7,7 @@ public class BaseEnemy : MonoBehaviour
     public int maxHealth;
     public int health;
     public float speed;
+    public int goldEarned;
 
     [Header("navigation")]
     NavMeshAgent agent;
@@ -37,6 +38,7 @@ public class BaseEnemy : MonoBehaviour
             health -= collision.gameObject.GetComponent<Projectile>().damage;
             if (health <= 0)
             {
+                //increase gold
                 gameObject.SetActive(false);
                 health = maxHealth; 
             }
