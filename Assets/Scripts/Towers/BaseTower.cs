@@ -4,13 +4,12 @@ public abstract class BaseTower : MonoBehaviour
 {
     [HideInInspector] public Color originalColor;
     public Transform rangePrefab;
-
     public Transform projectilePrefab;
 
     [Header("Stats")]
     public float range;
     public float fireRate;
-
+    public int damage;
     [HideInInspector] public float fireCountDown = 0f;
 
     private void Awake()

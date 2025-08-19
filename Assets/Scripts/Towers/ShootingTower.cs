@@ -5,7 +5,7 @@ public class ShootingTower : BaseTower, IShoot
     [HideInInspector] public Transform target;
     public Transform firePoint;
     public string enemyTag = "Enemy";
-    public int damage;
+
     public void Start()
     {
         InvokeRepeating("CheckForEnemies", 0, .5f);

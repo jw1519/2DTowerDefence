@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class TowerUpgradeManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void UpgradeFireRate(BaseTower tower)
     {
-        
+        if (tower != null)
+        {
+            tower.fireRate *= 2;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void UpgradeRange(BaseTower tower)
     {
-        
+        if (tower != null)
+        {
+            tower.fireRate *= 2;
+        }
+    }
+    public void UpgradeDamage(BaseTower tower)
+    {
+        if (tower != null)
+        {
+            tower.fireRate *= 2;
+        }
     }
 }

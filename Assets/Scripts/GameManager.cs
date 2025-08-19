@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     {
         GameStateManager.instance.ChangeState(GameState.RoundSetup);
         GameBoard.instance.SetPathTiles();
-        UIManager.instance.panels.Find(panel => panel.name == "GameUI").OpenPanel();
+        UIManager.instance.panels.Find(panel => panel.name == "TowerPanel").OpenPanel();
         round = 0;
         amountOfEnemiesToSpawn = 5;
     }
