@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public void NextRound()
     {
         round++;
-        amountOfEnemiesToSpawn = amountOfEnemiesToSpawn * 2;
+        amountOfEnemiesToSpawn *= 2;
         //spawn enemies
         StartCoroutine(waveSpawner.SpawnWave(amountOfEnemiesToSpawn));
     }

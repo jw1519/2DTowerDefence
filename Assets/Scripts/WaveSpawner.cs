@@ -9,12 +9,13 @@ public class WaveSpawner : MonoBehaviour
     public Transform endPoint;
     public Transform enemyParent;
 
+
     public IEnumerator SpawnWave(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
             SpawnEnemy();
-            new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
         }
         waveNumber++;
         yield return null;
