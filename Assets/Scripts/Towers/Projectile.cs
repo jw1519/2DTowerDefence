@@ -4,6 +4,7 @@ public class Projectile : MonoBehaviour
 {
     public Transform target;
     public float speed;
+    public int damage;
 
     private void Update()
     {
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        transform.Translate(direction.normalized * distance, Space.World);
+        transform.Translate(direction.normalized * distance);
     }
     public void Seek(Transform target)
     {

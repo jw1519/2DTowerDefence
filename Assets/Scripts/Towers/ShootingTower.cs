@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class ShootingTower : BaseTower, IShoot
 {
+    [HideInInspector] public Transform target;
     public Transform firePoint;
     public string enemyTag = "Enemy";
+    public int damage;
     public void Start()
     {
         InvokeRepeating("CheckForEnemies", 0, .5f);
@@ -48,13 +50,18 @@ public class ShootingTower : BaseTower, IShoot
     public virtual void Shoot()
     {
         Vector3 distance = (target.transform.position - firePoint.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(distance);
+        // Get angle in degrees
+        float angle = Mathf.Atan2(distance.y, distance.x);
+
+        // Create rotation only around Z axis
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         GameObject projectileGO = ProjectilePool.instance.SpawnFromPool("CannonBall", firePoint.position, Quaternion.identity);
         projectileGO.transform.rotation = rotation;
         Projectile projectile = projectileGO.GetComponent<Projectile>();
         if (projectile != null)
         {
+            projectile.damage = damage;
             projectile.Seek(target);
         }
     }

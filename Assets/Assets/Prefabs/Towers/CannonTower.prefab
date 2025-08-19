@@ -103,16 +103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11ebaa9d1889e64f8c67f98260f2fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   rangePrefab: {fileID: 1820522572803730004}
   projectilePrefab: {fileID: 7949080288825190554, guid: daf5202a4751deb49a40b3381e8edd45, type: 3}
   range: 5
-  fireRate: 1
-  damage: 1
+  fireRate: 2
   fireCountDown: 0
+  target: {fileID: 0}
   firePoint: {fileID: 2335453744438557813}
   enemyTag: Enemy
+  damage: 5
 --- !u!61 &-3914051550658449149
 BoxCollider2D:
   m_ObjectHideFlags: 0
