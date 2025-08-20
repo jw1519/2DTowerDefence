@@ -1,17 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NavMeshPlus.Components;
+using UnityEngine.AI;
+using NavMeshPlus.Extensions;
+using System.Collections;
+
 public class GameBoard : MonoBehaviour
 {
     public static GameBoard instance;
-    public List<BaseTile> tiles;
-    public List<BaseTile> pathTiles;
-    public GameObject pathTile;
-    public GameObject startTile;
 
     public Transform tileParent;
     public NavMeshSurface surface;
 
+    [Header("tiles")]
+    public List<BaseTile> tiles;
+    public List<BaseTile> pathTiles;
+    public GameObject pathTile;
+    public GameObject startTile;
+    public GameObject endTile;
+
+    [Header("BoardSize")]
     public float width = 5;
     public float height = 5;
     public float spacing = 1;
@@ -44,6 +52,7 @@ public class GameBoard : MonoBehaviour
                     instance.name = "Start";
                     random = (int)(height + 1);
                     FindFirstObjectByType<WaveSpawner>().spawnPoint = instance.transform;
+                    startTile = instance;
                 }
                 else
                 {
@@ -74,5 +83,27 @@ public class GameBoard : MonoBehaviour
             Destroy(tile.gameObject);
         }
         surface.BuildNavMeshAsync();
+    }
+    public bool CheckNavMesh(NavMeshAgent agent)
+    {
+
+        agent.gameObject.transform.position = startTile.transform.position;
+        agent.gameObject.GetComponent<BaseEnemy>().endLocation = endTile.transform;
+
+        foreach (BaseTile tile in pathTiles)
+        {
+            if (tile.gameObject.GetComponent<NavMeshModifier>() == null)
+                tile.gameObject.AddComponent<NavMeshModifier>();
+        }
+        surface.BuildNavMesh();
+
+        NavMeshPath path = new();
+        if (agent.CalculatePath(endTile.transform.position, path))
+        {
+            Debug.Log("in here");
+            //return true if path is complete
+            return path.status == NavMeshPathStatus.PathComplete;
+        }
+        return false;
     }
 }

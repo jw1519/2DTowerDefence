@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb995d39a8c7bbd4d99b52e99d48039e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileParent: {fileID: 4767932}
+  surface: {fileID: 381310687}
   tiles:
   - {fileID: -1666815088682657465, guid: f08f3f2f438365c4190674c372ea8bb0, type: 3}
   - {fileID: -1666815088682657465, guid: f08f3f2f438365c4190674c372ea8bb0, type: 3}
@@ -155,8 +157,7 @@ MonoBehaviour:
   pathTiles: []
   pathTile: {fileID: 8488855772249430936, guid: 6f75c65bff44c0941a9e395baca829cd, type: 3}
   startTile: {fileID: 8488855772249430936, guid: 185364970773f8048b627df5c963ab1e, type: 3}
-  tileParent: {fileID: 4767932}
-  surface: {fileID: 381310687}
+  endTile: {fileID: 1578245019}
   width: 13
   height: 8
   spacing: 1
@@ -1214,7 +1215,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614775431}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1224,7 +1225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -150}
+  m_AnchoredPosition: {x: 80.00012, y: -150}
   m_SizeDelta: {x: 160, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &614775433
@@ -1943,7 +1944,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panels:
   - {fileID: 1312047286}
-  - {fileID: 0}
   - {fileID: 1187047651}
 --- !u!1 &1014847858
 GameObject:
@@ -2125,7 +2125,7 @@ GameObject:
   - component: {fileID: 1187047649}
   - component: {fileID: 1187047651}
   m_Layer: 5
-  m_Name: statsPanel
+  m_Name: StatsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2458,6 +2458,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1346478615}
   m_CullTransparentMesh: 1
+--- !u!1 &1578245019 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8488855772249430936, guid: 797a7481699567443b5e01332d5bd402, type: 3}
+  m_PrefabInstance: {fileID: 441877801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1668487745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,9 +3007,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 1668487746}
   - {fileID: 676903550}
   - {fileID: 4767932}
   - {fileID: 691469248}
-  - {fileID: 1668487746}
   - {fileID: 381310684}
   - {fileID: 726719673455876293}

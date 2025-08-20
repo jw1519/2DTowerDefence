@@ -25,8 +25,11 @@ public class EnemyPool : MonoBehaviour
         public GameObject objectToPool;
         public int amountToPool = 100;
     }
-
-    void Start()
+    private void Start()
+    {
+        CreatePools();
+    }
+    public void CreatePools()
     {
         pooledDictionary = new Dictionary<string, Queue<GameObject>>();
 
@@ -71,6 +74,16 @@ public class EnemyPool : MonoBehaviour
             Debug.Log("Pool doesnt exist " + tag);
             return null;
         }
+    }
+    public GameObject GetPooledObjectEnemy(string tag)
+    {
+        if (pooledDictionary.ContainsKey(tag))
+        {
+            GameObject objectToSpawn = pooledDictionary[tag].Dequeue();
+            pooledDictionary[tag].Enqueue(objectToSpawn);
+            return objectToSpawn;
+        }
+        return null;
     }
 
 }
