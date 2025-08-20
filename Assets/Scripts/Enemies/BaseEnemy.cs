@@ -7,6 +7,7 @@ public class BaseEnemy : MonoBehaviour
     public int maxHealth;
     public int health;
     public float speed;
+    public int damage;
     public int goldEarned;
 
     [Header("navigation")]
@@ -19,21 +20,6 @@ public class BaseEnemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         health = maxHealth;
-    }
-    void OnEnable()
-    {
-        if (agent != null && !agent.isOnNavMesh)
-        {
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(agent.transform.position, out hit, 10f, NavMesh.AllAreas))
-            {
-                agent.Warp(hit.position); //forces agent onto NavMesh
-            }
-            else
-            {
-                Debug.LogWarning("Agent is too far from the NavMesh!");
-            }
-        }
     }
 
     private void Update()
