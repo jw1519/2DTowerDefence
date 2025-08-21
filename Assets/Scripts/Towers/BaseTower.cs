@@ -10,6 +10,7 @@ public abstract class BaseTower : MonoBehaviour
     public float range;
     public float fireRate;
     public int damage;
+    public bool isplaced = false;
     [HideInInspector] public float fireCountDown = 0f;
 
     private void Awake()

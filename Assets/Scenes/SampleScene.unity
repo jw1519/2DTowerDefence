@@ -2204,7 +2204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cd0a04894bc82488e87f342792624f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 100
+  currentGold: 0
   roundText: {fileID: 447574035}
   healthText: {fileID: 1755763307}
   goldText: {fileID: 600176743}

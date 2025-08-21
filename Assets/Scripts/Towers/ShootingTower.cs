@@ -12,12 +12,15 @@ public class ShootingTower : BaseTower, IShoot
     }
     private void Update()
     {
-        if (target != null)
+        if (isplaced)
         {
-            if (fireCountDown <= 0)
+            if (target != null)
             {
-                Shoot();
-                fireCountDown = 1 / fireRate;
+                if (fireCountDown <= 0)
+                {
+                    Shoot();
+                    fireCountDown = 1 / fireRate;
+                }
             }
         }
         fireCountDown -= Time.deltaTime;

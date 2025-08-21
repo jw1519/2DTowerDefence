@@ -126,7 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  health: 0
   speed: 1
+  damage: 1
+  goldEarned: 10
   endLocation: {fileID: 0}
 --- !u!61 &1624355282725611141
 BoxCollider2D:

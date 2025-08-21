@@ -35,6 +35,7 @@ public class TowerBuildManager : MonoBehaviour
         towerToBuild.GetComponent<SpriteRenderer>().color = towerToBuild.GetComponent<BaseTower>().originalColor;
         towerToBuild.transform.localPosition = new Vector3(0, 0, -2);
         towerToBuild.GetComponent<Collider2D>().enabled = true;
+        towerToBuild.GetComponent<BaseTower>().isplaced = true;
         towerToBuild = null;
     }
 }

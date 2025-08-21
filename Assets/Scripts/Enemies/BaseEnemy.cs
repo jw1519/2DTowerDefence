@@ -21,6 +21,11 @@ public class BaseEnemy : MonoBehaviour
         agent.updateUpAxis = false;
         health = maxHealth;
     }
+    StatsPanel statsPanel;
+    private void Start()
+    {
+        statsPanel = UIManager.instance.panels.Find(panel =>  panel.name == "StatsPanel").gameObject.GetComponent<StatsPanel>();
+    }
 
     private void Update()
     {
@@ -34,15 +39,16 @@ public class BaseEnemy : MonoBehaviour
         if (collision.gameObject.name == endLocation.gameObject.name)
         {
             gameObject.SetActive(false);
+            statsPanel.SubtractFromHealth(damage);
         }
-        if (collision.gameObject.CompareTag("Projectile"))
+        else if (collision.gameObject.CompareTag("Projectile"))
         {
             health -= collision.gameObject.GetComponent<Projectile>().damage;
             if (health <= 0)
             {
-                //increase gold
                 gameObject.SetActive(false);
-                health = maxHealth; 
+                health = maxHealth;
+                statsPanel.AddGold(goldEarned);
             }
         }
     }

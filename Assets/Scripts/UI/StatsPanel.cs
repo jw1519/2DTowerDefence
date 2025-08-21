@@ -4,25 +4,38 @@ using UnityEngine;
 public class StatsPanel : BasePanel
 {
     public int currentHealth;
+    public int currentGold;
     [Header("stats text")]
     public TextMeshProUGUI roundText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI goldText;
+    private void Start()
+    {
+        healthText.text = currentHealth.ToString();
+        goldText.text = currentGold.ToString();
+    }
     public void UpdateRoundText(int round)
     {
         roundText.text = "Round " + round;
     }
-    public void UpdateHealthText(int health)
+    public void AddToHealthText(int amount)
     {
-        healthText.text = health.ToString();
+        currentHealth += amount;
+        healthText.text = currentHealth.ToString();
     }
     public void SubtractFromHealth(int amount)
     {
         currentHealth -= amount;
-        healthText.text  = currentHealth.ToString();
+        healthText.text = currentHealth.ToString();
     }
-    public void UpdateGoldText(int Gold)
+    public void AddGold(int amount)
     {
-        goldText.text = Gold.ToString();    
+        currentGold += amount;
+        goldText.text = currentGold.ToString();
+    }
+    public void RemoveGold(int amount)
+    {
+        currentGold -= amount;
+        goldText.text = currentGold.ToString();
     }
 }
