@@ -5,6 +5,7 @@ public class StatsPanel : BasePanel
 {
     public int currentHealth;
     public int currentGold;
+    int totalGold;
     [Header("stats text")]
     public TextMeshProUGUI roundText;
     public TextMeshProUGUI healthText;
@@ -27,11 +28,16 @@ public class StatsPanel : BasePanel
     {
         currentHealth -= amount;
         healthText.text = currentHealth.ToString();
+        if (currentHealth <= 0)
+        {
+            GameManager.instance.GameOver(totalGold);
+        }
     }
     public void AddGold(int amount)
     {
         currentGold += amount;
         goldText.text = currentGold.ToString();
+        totalGold += amount;
     }
     public void RemoveGold(int amount)
     {
