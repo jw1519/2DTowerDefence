@@ -7,6 +7,7 @@ public abstract class BaseTower : MonoBehaviour
     public Transform projectilePrefab;
 
     [Header("Stats")]
+    public string towerName;
     public float range;
     public float fireRate;
     public int damage;
@@ -14,10 +15,20 @@ public abstract class BaseTower : MonoBehaviour
     public bool isplaced = false;
     [HideInInspector] public float fireCountDown = 0f;
 
-    private void Awake()
+    [Header("upgrades")]
+    public TowerUpgradePanel upgradePanel;
+    public int rangeUpgradeCost;
+    public int fireRateUpgradeCost;
+    public int damageUpgradeCost;
+
+    public void Awake()
     {
         originalColor = GetComponent<SpriteRenderer>().color;
         UpdateRange();
+    }
+    public void Start()
+    {
+        upgradePanel = UIManager.instance.panels.Find(panel => panel.name == "TowerUpgradePanel").GetComponent<TowerUpgradePanel>();
     }
     public void UpdateRange()
     {
@@ -39,6 +50,17 @@ public abstract class BaseTower : MonoBehaviour
     {
         HideRange();
     }
+    private void OnMouseDown()
+    {
 
-
+        if (upgradePanel != null)
+        {
+            upgradePanel.SetTower(this);
+            upgradePanel.OpenPanel();
+        }
+        else
+        {
+            upgradePanel = UIManager.instance.panels.Find(panel => panel.name == "TowerUpgradePanel").GetComponent<TowerUpgradePanel>();
+        }
+    }
 }
