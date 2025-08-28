@@ -6,8 +6,9 @@ public class ShootingTower : BaseTower, IShoot
     public Transform firePoint;
     public string enemyTag = "Enemy";
 
-    public void Start()
+    public override void Start()
     {
+        base.Start();  
         InvokeRepeating("CheckForEnemies", 0, .5f);
     }
     private void Update()

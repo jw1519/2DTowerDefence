@@ -21,12 +21,12 @@ public abstract class BaseTower : MonoBehaviour
     public int fireRateUpgradeCost;
     public int damageUpgradeCost;
 
-    public void Awake()
+    public virtual void Awake()
     {
         originalColor = GetComponent<SpriteRenderer>().color;
         UpdateRange();
     }
-    public void Start()
+    public virtual void Start()
     {
         upgradePanel = UIManager.instance.panels.Find(panel => panel.name == "TowerUpgradePanel").GetComponent<TowerUpgradePanel>();
     }
@@ -52,15 +52,28 @@ public abstract class BaseTower : MonoBehaviour
     }
     private void OnMouseDown()
     {
-
         if (upgradePanel != null)
         {
             upgradePanel.SetTower(this);
             upgradePanel.OpenPanel();
+            upgradePanel.UpdatePanel();
         }
         else
         {
             upgradePanel = UIManager.instance.panels.Find(panel => panel.name == "TowerUpgradePanel").GetComponent<TowerUpgradePanel>();
         }
+    }
+    public void UpgradeFireRate()
+    {
+        fireRate *= 2;
+    }
+    public void UpgradeRange()
+    {
+        range += 2;
+        UpdateRange();
+    }
+    public void UpgradeDamage()
+    {
+        damage += 3;
     }
 }

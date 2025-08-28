@@ -44,4 +44,12 @@ public class StatsPanel : BasePanel
         currentGold -= amount;
         goldText.text = currentGold.ToString();
     }
+    public bool CanBuy(int amount)
+    {
+        if (currentGold - amount >= 0)
+        {
+            return true;
+        }
+        return false;
+    }
 }
