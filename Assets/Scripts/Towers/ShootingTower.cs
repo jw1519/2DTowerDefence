@@ -65,7 +65,7 @@ public class ShootingTower : BaseTower, IShoot
         Projectile projectile = projectileGO.GetComponent<Projectile>();
         if (projectile != null)
         {
-            projectile.damage = damage;
+            projectile.damage = power;
             projectile.Seek(target);
         }
     }

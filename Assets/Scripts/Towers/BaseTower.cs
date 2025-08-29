@@ -10,7 +10,7 @@ public abstract class BaseTower : MonoBehaviour
     public string towerName;
     public float range;
     public float fireRate;
-    public int damage;
+    public int power;
     public int cost;
     public bool isplaced = false;
     [HideInInspector] public float fireCountDown = 0f;
@@ -63,17 +63,17 @@ public abstract class BaseTower : MonoBehaviour
             upgradePanel = UIManager.instance.panels.Find(panel => panel.name == "TowerUpgradePanel").GetComponent<TowerUpgradePanel>();
         }
     }
-    public void UpgradeFireRate()
+    public virtual void UpgradeFireRate()
     {
         fireRate *= 2;
     }
-    public void UpgradeRange()
+    public virtual void UpgradeRange()
     {
         range += 2;
         UpdateRange();
     }
-    public void UpgradeDamage()
+    public virtual void UpgradeDamage()
     {
-        damage += 3;
+        power += 3;
     }
 }
