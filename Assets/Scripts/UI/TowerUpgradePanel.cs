@@ -28,7 +28,7 @@ public class TowerUpgradePanel : BasePanel
             towerNameText.text = tower.towerName;
             rangeCostText.text = tower.rangeUpgradeCost.ToString();
             fireRateCostText.text = tower.fireRateUpgradeCost.ToString();
-            damageCostText.text = tower.damageUpgradeCost.ToString();
+            damageCostText.text = tower.powerUpgradeCost.ToString();
         }
     }
     public void UpgradeRange()
@@ -55,26 +55,15 @@ public class TowerUpgradePanel : BasePanel
                 tower.UpgradeFireRate();
             }
         }
-        else
-        {
-            statsPanel = UIManager.instance.panels.Find(panel => panel.name == "StatsPanel").GetComponent<StatsPanel>();
-            UpgradeFireRate();
-        }
     }
     public void UpgradeDamage()
     {
         if (statsPanel != null)
         {
-            if (statsPanel.CanBuy(tower.damageUpgradeCost))
+            if (statsPanel.CanBuy(tower.powerUpgradeCost))
             {
                 tower.UpgradeDamage();
             }
         }
-        else
-        {
-            statsPanel = UIManager.instance.panels.Find(panel => panel.name == "StatsPanel").GetComponent<StatsPanel>();
-            UpgradeDamage();
-        }
     }
-
 }

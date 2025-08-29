@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    int round;
+    int wave;
     public int amountOfEnemiesToSpawn;
     public WaveSpawner waveSpawner;
 
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             GameBoard.instance.SetPathTiles();
             GameStateManager.instance.ChangeState(GameState.RoundSetup);
             UIManager.instance.panels.Find(panel => panel.name == "TowerPanel").OpenPanel();
-            round = 0;
+            wave = 0;
             amountOfEnemiesToSpawn = 5;
         }
         else
@@ -41,12 +41,12 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void NextRound()
+    public void NextWave()
     {
-        round++;
+        wave++;
         if (statsPanel != null)
         {
-            statsPanel.UpdateRoundText(round);
+            statsPanel.UpdateRoundText(wave);
         }
         amountOfEnemiesToSpawn *= 2;
         //spawn enemies
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         GameOverPanel gameOverPanel = UIManager.instance.panels.Find(panel => panel.name == "GameOverPanel").gameObject.GetComponent<GameOverPanel>();
         gameOverPanel.OpenPanel();
-        gameOverPanel.UpdateRoundText(round);
+        gameOverPanel.UpdateRoundText(wave);
         gameOverPanel.UpdateGoldText(gold);
     }
 }

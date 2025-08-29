@@ -19,7 +19,12 @@ public abstract class BaseTower : MonoBehaviour
     public TowerUpgradePanel upgradePanel;
     public int rangeUpgradeCost;
     public int fireRateUpgradeCost;
-    public int damageUpgradeCost;
+    public int powerUpgradeCost;
+
+    public int maxUpgradeAmount;
+    [HideInInspector] public int rangeUpgradeAmount = 0;
+    [HideInInspector] public int fireRateUpgradeAmount = 0;
+    [HideInInspector] public int powerUpgradeAmount = 0;
 
     public virtual void Awake()
     {
@@ -65,15 +70,27 @@ public abstract class BaseTower : MonoBehaviour
     }
     public virtual void UpgradeFireRate()
     {
-        fireRate *= 2;
+        if (fireRateUpgradeAmount < maxUpgradeAmount)
+        {
+            fireRate *= 2;
+            fireRateUpgradeAmount++;
+        }
     }
     public virtual void UpgradeRange()
     {
-        range += 2;
-        UpdateRange();
+        if (rangeUpgradeAmount < maxUpgradeAmount)
+        {
+            range += 2;
+            UpdateRange();
+            rangeUpgradeAmount++;
+        }
     }
     public virtual void UpgradeDamage()
     {
-        power += 3;
+        if (powerUpgradeAmount < maxUpgradeAmount)
+        {
+            power += 3;
+            powerUpgradeAmount++;
+        }
     }
 }

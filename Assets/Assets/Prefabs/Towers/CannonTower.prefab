@@ -107,15 +107,20 @@ MonoBehaviour:
   rangePrefab: {fileID: 1820522572803730004}
   projectilePrefab: {fileID: 7949080288825190554, guid: daf5202a4751deb49a40b3381e8edd45, type: 3}
   towerName: CannonTower
-  range: 5
+  range: 3
   fireRate: 2
-  damage: 5
+  power: 2
   cost: 10
   isplaced: 0
   fireCountDown: 0
+  upgradePanel: {fileID: 0}
   rangeUpgradeCost: 10
   fireRateUpgradeCost: 10
-  damageUpgradeCost: 10
+  powerUpgradeCost: 10
+  maxUpgradeAmount: 5
+  rangeUpgradeAmount: 0
+  fireRateUpgradeAmount: 0
+  powerUpgradeAmount: 0
   target: {fileID: 0}
   firePoint: {fileID: 2335453744438557813}
   enemyTag: Enemy

@@ -1252,7 +1252,7 @@ GameObject:
   - component: {fileID: 447574036}
   - component: {fileID: 447574035}
   m_Layer: 5
-  m_Name: RoundText
+  m_Name: WaveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2226,7 +2226,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1014847860}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NextRound
+        m_MethodName: NextWave
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3579,7 +3579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   currentGold: 0
-  roundText: {fileID: 447574035}
+  waveText: {fileID: 447574035}
   healthText: {fileID: 1755763307}
   goldText: {fileID: 600176743}
 --- !u!1 &1312047281

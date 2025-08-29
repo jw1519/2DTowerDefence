@@ -7,7 +7,7 @@ public class StatsPanel : BasePanel
     public int currentGold;
     int totalGold;
     [Header("stats text")]
-    public TextMeshProUGUI roundText;
+    public TextMeshProUGUI waveText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI goldText;
     private void Start()
@@ -15,9 +15,9 @@ public class StatsPanel : BasePanel
         healthText.text = currentHealth.ToString();
         goldText.text = currentGold.ToString();
     }
-    public void UpdateRoundText(int round)
+    public void UpdateRoundText(int wave)
     {
-        roundText.text = "Round " + round;
+        waveText.text = "Wave " + wave;
     }
     public void AddToHealthText(int amount)
     {
