@@ -59,6 +59,7 @@ public class TowerUpgradePanel : BasePanel
         {
             if (statsPanel.CanBuy(tower.rangeUpgradeCost))
             {
+                statsPanel.RemoveGold(tower.rangeUpgradeCost);
                 tower.UpgradeRange();
             }
         }
@@ -75,6 +76,7 @@ public class TowerUpgradePanel : BasePanel
         {
             if (statsPanel.CanBuy(tower.fireRateUpgradeCost))
             {
+                statsPanel.RemoveGold(tower.fireRateUpgradeCost);
                 tower.UpgradeFireRate();
             }
         }
@@ -86,6 +88,7 @@ public class TowerUpgradePanel : BasePanel
         {
             if (statsPanel.CanBuy(tower.powerUpgradeCost))
             {
+                statsPanel.RemoveGold(tower.powerUpgradeCost);
                 tower.UpgradeDamage();
             }
         }

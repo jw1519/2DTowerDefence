@@ -21,4 +21,9 @@ public class TowerFactory : MonoBehaviour
         instance.GetComponent<SpriteRenderer>().color = towerColor;
         return instance;
     }
+    public BaseTower GetTowerToBuild(string towerName)
+    {
+        BaseTower instance = towers.Find(tower => tower.name == towerName).GetComponent<BaseTower>();
+        return instance;    
+    }
 }

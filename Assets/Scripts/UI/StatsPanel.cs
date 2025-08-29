@@ -4,7 +4,7 @@ using UnityEngine;
 public class StatsPanel : BasePanel
 {
     public int currentHealth;
-    public int currentGold;
+    public int currentGold = 100;
     int totalGold;
     [Header("stats text")]
     public TextMeshProUGUI waveText;
@@ -13,6 +13,7 @@ public class StatsPanel : BasePanel
     private void Start()
     {
         healthText.text = currentHealth.ToString();
+        currentGold = 100;
         goldText.text = currentGold.ToString();
     }
     public void UpdateRoundText(int wave)
@@ -50,6 +51,7 @@ public class StatsPanel : BasePanel
         {
             return true;
         }
+        Debug.Log("not enough gold");
         return false;
     }
 }
