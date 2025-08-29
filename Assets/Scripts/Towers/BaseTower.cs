@@ -102,4 +102,5 @@ public abstract class BaseTower : MonoBehaviour
             powerUpgradeAmount++;
         }
     }
+
 }

@@ -8,7 +8,7 @@ public class TowerUpgradePanel : BasePanel
     public TextMeshProUGUI towerNameText;
     public TextMeshProUGUI rangeCostText;
     public TextMeshProUGUI fireRateCostText;
-    public TextMeshProUGUI damageCostText;
+    public TextMeshProUGUI powerCostText;
     private void Start()
     {
         statsPanel = UIManager.instance.panels.Find(panel =>  panel.name == "StatsPanel").GetComponent<StatsPanel>();
@@ -25,10 +25,32 @@ public class TowerUpgradePanel : BasePanel
     {
         if (tower != null)
         {
+            int max = tower.maxUpgradeAmount;
             towerNameText.text = tower.towerName;
-            rangeCostText.text = tower.rangeUpgradeCost.ToString();
-            fireRateCostText.text = tower.fireRateUpgradeCost.ToString();
-            damageCostText.text = tower.powerUpgradeCost.ToString();
+            if (tower.rangeUpgradeAmount < max)
+            {
+                rangeCostText.text = tower.rangeUpgradeCost.ToString();
+            }
+            else
+            {
+                rangeCostText.text = "Fully Upgraded";
+            }
+            if (tower.fireRateUpgradeAmount < max)
+            {
+                fireRateCostText.text = tower.fireRateUpgradeCost.ToString();
+            }
+            else
+            {
+                fireRateCostText.text = "Fully Upgraded";
+            }
+            if (tower.powerUpgradeAmount < max)
+            {
+                powerCostText.text = tower.powerUpgradeCost.ToString();
+            }
+            else
+            {
+                powerCostText.text = "Fully Upgraded";
+            }
         }
     }
     public void UpgradeRange()
@@ -45,6 +67,7 @@ public class TowerUpgradePanel : BasePanel
             statsPanel = UIManager.instance.panels.Find(panel => panel.name == "StatsPanel").GetComponent<StatsPanel>();
             UpgradeRange();
         }
+        UpdatePanel();
     }
     public void UpgradeFireRate()
     {
@@ -55,6 +78,7 @@ public class TowerUpgradePanel : BasePanel
                 tower.UpgradeFireRate();
             }
         }
+        UpdatePanel();
     }
     public void UpgradeDamage()
     {
@@ -65,5 +89,6 @@ public class TowerUpgradePanel : BasePanel
                 tower.UpgradeDamage();
             }
         }
+        UpdatePanel();
     }
 }
