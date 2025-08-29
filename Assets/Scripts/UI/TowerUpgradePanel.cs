@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TowerUpgradePanel : BasePanel
 {
-    BaseTower tower;
+    [HideInInspector] public BaseTower tower;
     StatsPanel statsPanel;
     public TextMeshProUGUI towerNameText;
     public TextMeshProUGUI rangeCostText;

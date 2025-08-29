@@ -59,9 +59,18 @@ public abstract class BaseTower : MonoBehaviour
     {
         if (upgradePanel != null)
         {
-            upgradePanel.SetTower(this);
-            upgradePanel.OpenPanel();
-            upgradePanel.UpdatePanel();
+            if (upgradePanel.tower != this)
+            {
+                upgradePanel.SetTower(this);
+                upgradePanel.OpenPanel();
+                upgradePanel.UpdatePanel();
+            }
+            else
+            {
+                upgradePanel.ClosePanel();
+                upgradePanel.tower = null;
+            }    
+
         }
         else
         {
