@@ -18,7 +18,7 @@ public class TowerFactory : MonoBehaviour
     {
         GameObject instance = Instantiate(towers.Find(tower =>  tower.name == towerName));
         instance.name = towerName;
-        instance.GetComponent<SpriteRenderer>().color = towerColor;
+        instance.GetComponent<BaseTower>().towerImage.GetComponent<SpriteRenderer>().color = towerColor;
         return instance;
     }
     public BaseTower GetTowerToBuild(string towerName)

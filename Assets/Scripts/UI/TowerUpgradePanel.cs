@@ -89,7 +89,7 @@ public class TowerUpgradePanel : BasePanel
             if (statsPanel.CanBuy(tower.powerUpgradeCost))
             {
                 statsPanel.RemoveGold(tower.powerUpgradeCost);
-                tower.UpgradeDamage();
+                tower.UpgradePower();
             }
         }
         UpdatePanel();

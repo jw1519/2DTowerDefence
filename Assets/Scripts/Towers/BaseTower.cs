@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEditor.U2D;
 using UnityEngine;
 
 public abstract class BaseTower : MonoBehaviour
@@ -5,6 +8,8 @@ public abstract class BaseTower : MonoBehaviour
     [HideInInspector] public Color originalColor;
     public Transform rangePrefab;
     public Transform projectilePrefab;
+    public List<Sprite> towerSprites;
+    public GameObject towerImage;
 
     [Header("Stats")]
     public string towerName;
@@ -28,8 +33,9 @@ public abstract class BaseTower : MonoBehaviour
 
     public virtual void Awake()
     {
-        originalColor = GetComponent<SpriteRenderer>().color;
         UpdateRange();
+        towerImage.GetComponent<SpriteRenderer>().sprite = towerSprites[0];
+        originalColor = towerImage.GetComponent<SpriteRenderer>().color;
     }
     public virtual void Start()
     {
@@ -70,7 +76,6 @@ public abstract class BaseTower : MonoBehaviour
                 upgradePanel.ClosePanel();
                 upgradePanel.tower = null;
             }    
-
         }
         else
         {
@@ -81,7 +86,7 @@ public abstract class BaseTower : MonoBehaviour
     {
         if (fireRateUpgradeAmount < maxUpgradeAmount)
         {
-            fireRate *= 2;
+            fireRate += 2;
             fireRateUpgradeAmount++;
         }
     }
@@ -94,7 +99,7 @@ public abstract class BaseTower : MonoBehaviour
             rangeUpgradeAmount++;
         }
     }
-    public virtual void UpgradeDamage()
+    public virtual void UpgradePower()
     {
         if (powerUpgradeAmount < maxUpgradeAmount)
         {

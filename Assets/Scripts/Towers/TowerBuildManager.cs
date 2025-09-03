@@ -32,10 +32,12 @@ public class TowerBuildManager : MonoBehaviour
         if (towerToBuild == null) return;
         tile.tower = towerToBuild;
         towerToBuild.transform.SetParent(tile.transform, false);
-        towerToBuild.GetComponent<SpriteRenderer>().color = towerToBuild.GetComponent<BaseTower>().originalColor;
+
+        BaseTower tower = towerToBuild.GetComponent<BaseTower>();
+        tower.towerImage.GetComponent<SpriteRenderer>().color = tower.originalColor;
         towerToBuild.transform.localPosition = new Vector3(0, 0, -2);
         towerToBuild.GetComponent<Collider2D>().enabled = true;
-        towerToBuild.GetComponent<BaseTower>().isplaced = true;
+        tower.isplaced = true;
         towerToBuild = null;
     }
 }
