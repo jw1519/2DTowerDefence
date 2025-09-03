@@ -83,7 +83,6 @@ public class GameBoard : MonoBehaviour
     }
     public bool CheckNavMesh(NavMeshAgent agent)
     {
-
         agent.gameObject.transform.position = startTile.transform.position;
         agent.gameObject.GetComponent<BaseEnemy>().endLocation = endTile.transform;
 
@@ -97,7 +96,6 @@ public class GameBoard : MonoBehaviour
         NavMeshPath path = new();
         if (agent.CalculatePath(endTile.transform.position, path))
         {
-            Debug.Log("in here");
             //return true if path is complete
             return path.status == NavMeshPathStatus.PathComplete;
         }
