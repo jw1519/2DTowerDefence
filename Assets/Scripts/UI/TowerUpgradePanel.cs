@@ -9,6 +9,7 @@ public class TowerUpgradePanel : BasePanel
     public TextMeshProUGUI rangeCostText;
     public TextMeshProUGUI fireRateCostText;
     public TextMeshProUGUI powerCostText;
+    public TextMeshProUGUI sellValueText;
     private void Start()
     {
         statsPanel = UIManager.instance.panels.Find(panel =>  panel.name == "StatsPanel").GetComponent<StatsPanel>();
@@ -51,6 +52,7 @@ public class TowerUpgradePanel : BasePanel
             {
                 powerCostText.text = "Fully Upgraded";
             }
+            sellValueText.text = tower.sellValue.ToString();
         }
     }
     public void UpgradeRange()
@@ -93,5 +95,9 @@ public class TowerUpgradePanel : BasePanel
             }
         }
         UpdatePanel();
+    }
+    public void Sell()
+    {
+        tower.Sell();
     }
 }

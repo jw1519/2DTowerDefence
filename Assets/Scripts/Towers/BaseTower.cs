@@ -6,7 +6,6 @@ public abstract class BaseTower : MonoBehaviour
     [HideInInspector] public Color originalColor;
     public Transform rangePrefab;
     public Transform projectilePrefab;
-    public List<Sprite> towerSprites;
     public GameObject towerImage;
 
     [Header("Stats")]
@@ -17,6 +16,7 @@ public abstract class BaseTower : MonoBehaviour
     public int cost;
     public bool isplaced = false;
     [HideInInspector] public float fireCountDown = 0f;
+    [HideInInspector] public int sellValue = 0;
 
     [Header("upgrades")]
     public TowerUpgradePanel upgradePanel;
@@ -32,8 +32,9 @@ public abstract class BaseTower : MonoBehaviour
     public virtual void Awake()
     {
         UpdateRange();
-        towerImage.GetComponent<SpriteRenderer>().sprite = towerSprites[0];
         originalColor = towerImage.GetComponent<SpriteRenderer>().color;
+        sellValue = cost / 2;
+
     }
     public virtual void Start()
     {
@@ -86,6 +87,7 @@ public abstract class BaseTower : MonoBehaviour
         {
             fireRate += 2;
             fireRateUpgradeAmount++;
+            sellValue += fireRateUpgradeCost / 2;
         }
     }
     public virtual void UpgradeRange()
@@ -95,6 +97,7 @@ public abstract class BaseTower : MonoBehaviour
             range += 2;
             UpdateRange();
             rangeUpgradeAmount++;
+            sellValue += rangeUpgradeCost / 2;
         }
     }
     public virtual void UpgradePower()
@@ -103,7 +106,14 @@ public abstract class BaseTower : MonoBehaviour
         {
             power += 3;
             powerUpgradeAmount++;
+            sellValue += powerUpgradeCost / 2;
         }
+    }
+    public void Sell()
+    {
+        UIManager.instance.panels.Find(panel => panel.name == "StatsPanel").GetComponent<StatsPanel>().AddGold(sellValue);
+        GetComponentInParent<PlacableTile>().tower = null;
+        Destroy(gameObject);
     }
 
 }
