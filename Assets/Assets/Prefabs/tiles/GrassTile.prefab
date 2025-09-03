@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3670606, g: 0.6037736, b: 0.2249911, a: 1}
+  m_Sprite: {fileID: -1891334407380981513, guid: 6dc04b4bae496e84db5cce9a749d3f1f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.66, y: 0.66}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cbfe9873e8f2e4f8afa8020d1ec2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileSprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  tileSprite: {fileID: -1891334407380981513, guid: 6dc04b4bae496e84db5cce9a749d3f1f, type: 3}
   startColor: {r: 0, g: 0, b: 0, a: 0}
   spriteRenderer: {fileID: 0}
   hoverColor: {r: 0, g: 0, b: 0, a: 1}
