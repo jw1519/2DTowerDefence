@@ -2,9 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using NavMeshPlus.Components;
 using UnityEngine.AI;
-using NavMeshPlus.Extensions;
-using System.Collections;
-
 public class GameBoard : MonoBehaviour
 {
     public static GameBoard instance;
