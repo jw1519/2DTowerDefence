@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         statsPanel = UIManager.instance.panels.Find(panel => panel.name == "StatsPanel").gameObject.GetComponent<StatsPanel>();
+        statsPanel.UpdateRoundText(wave);
     }
     public void NewGame()
     {
