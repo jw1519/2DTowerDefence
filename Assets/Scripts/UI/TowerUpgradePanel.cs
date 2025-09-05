@@ -10,6 +10,11 @@ public class TowerUpgradePanel : BasePanel
     public TextMeshProUGUI fireRateCostText;
     public TextMeshProUGUI powerCostText;
     public TextMeshProUGUI sellValueText;
+
+    [Header("currentStats")]
+    public TextMeshProUGUI currentRangeText;
+    public TextMeshProUGUI currentFirerateText;
+    public TextMeshProUGUI currentPowerText;
     private void Start()
     {
         statsPanel = UIManager.instance.panels.Find(panel =>  panel.name == "StatsPanel").GetComponent<StatsPanel>();
@@ -53,6 +58,9 @@ public class TowerUpgradePanel : BasePanel
                 powerCostText.text = "Fully Upgraded";
             }
             sellValueText.text = tower.sellValue.ToString();
+            currentRangeText.text = "Current range - " + tower.range.ToString();
+            currentFirerateText.text = "Current Firerate - " + tower.fireRate.ToString();
+            currentPowerText.text = "Current power - " + tower.power.ToString();
         }
     }
     public void UpgradeRange()
