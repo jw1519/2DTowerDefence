@@ -44,6 +44,7 @@ public class BaseEnemy : MonoBehaviour
         else if (collision.gameObject.CompareTag("Projectile"))
         {
             health -= collision.gameObject.GetComponent<Projectile>().damage;
+            collision.gameObject.SetActive(false);
             if (health <= 0)
             {
                 gameObject.SetActive(false);

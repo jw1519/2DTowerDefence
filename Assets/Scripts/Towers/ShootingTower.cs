@@ -5,6 +5,7 @@ public class ShootingTower : BaseTower, IShoot
     [HideInInspector] public Transform target;
     public Transform firePoint;
     public string enemyTag = "Enemy";
+    public string projectileName;
 
     public override void Start()
     {
@@ -60,7 +61,7 @@ public class ShootingTower : BaseTower, IShoot
         // Create rotation only around Z axis
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        GameObject projectileGO = ProjectilePool.instance.SpawnFromPool("CannonBall", firePoint.position, Quaternion.identity);
+        GameObject projectileGO = ProjectilePool.instance.SpawnFromPool(projectileName, firePoint.position, Quaternion.identity);
         projectileGO.transform.rotation = rotation;
         Projectile projectile = projectileGO.GetComponent<Projectile>();
         if (projectile != null)

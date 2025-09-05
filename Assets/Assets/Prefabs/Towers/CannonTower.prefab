@@ -51,10 +51,6 @@ MonoBehaviour:
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   rangePrefab: {fileID: 1820522572803730004}
   projectilePrefab: {fileID: 7949080288825190554, guid: daf5202a4751deb49a40b3381e8edd45, type: 3}
-  towerSprites:
-  - {fileID: 4153664930406320777, guid: fddfdbca1df558d4e840d7eb9d46322c, type: 3}
-  - {fileID: 964638976005787346, guid: fddfdbca1df558d4e840d7eb9d46322c, type: 3}
-  - {fileID: 5230240151563431664, guid: fddfdbca1df558d4e840d7eb9d46322c, type: 3}
   towerImage: {fileID: 8791745581007004287}
   towerName: CannonTower
   range: 3
@@ -63,6 +59,7 @@ MonoBehaviour:
   cost: 10
   isplaced: 0
   fireCountDown: 0
+  sellValue: 0
   upgradePanel: {fileID: 0}
   rangeUpgradeCost: 10
   fireRateUpgradeCost: 10
@@ -74,6 +71,7 @@ MonoBehaviour:
   target: {fileID: 0}
   firePoint: {fileID: 2335453744438557813}
   enemyTag: Enemy
+  projectileName: CannonBall
 --- !u!61 &-3914051550658449149
 BoxCollider2D:
   m_ObjectHideFlags: 0

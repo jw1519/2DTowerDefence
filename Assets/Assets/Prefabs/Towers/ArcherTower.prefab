@@ -71,6 +71,7 @@ MonoBehaviour:
   target: {fileID: 0}
   firePoint: {fileID: 2335453744438557813}
   enemyTag: Enemy
+  projectileName: Arrow
 --- !u!61 &-3914051550658449149
 BoxCollider2D:
   m_ObjectHideFlags: 0
