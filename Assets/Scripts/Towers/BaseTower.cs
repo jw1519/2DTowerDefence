@@ -42,6 +42,7 @@ public abstract class BaseTower : MonoBehaviour
     public void UpdateRange()
     {
         rangePrefab.localScale = new Vector2(range, range);
+        rangePrefab.GetComponent<CircleCollider2D>().radius = range;
     }
     public void HideRange()
     {

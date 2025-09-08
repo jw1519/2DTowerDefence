@@ -38,6 +38,7 @@ public class TowerBuildManager : MonoBehaviour
         towerToBuild.transform.localPosition = new Vector3(0, 0, -2);
         towerToBuild.GetComponent<Collider2D>().enabled = true;
         tower.isplaced = true;
+        tower.rangePrefab.GetComponent<Collider2D>().enabled = true;
         towerToBuild = null;
     }
 }

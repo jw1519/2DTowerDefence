@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
     public Transform target;
     public float speed;
     public int damage;
+    Vector3 direction;
 
     private void Update()
     {
@@ -13,22 +14,26 @@ public class Projectile : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-        Vector2 direction = target.position - transform.position;
-        Vector3 movement = transform.forward * speed;
-        //transform.LookAt(target.position);
-        //transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime);
-        //transform.position += movement * Time.deltaTime;
         float distance = speed * Time.deltaTime;
+        //transform.Translate(direction.normalized * distance);
+        transform.position += direction * speed * Time.deltaTime;
+    }
+    public void Launch()// projectile goes in straightline
+    {
+        direction = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (direction.magnitude <= distance)
-        {
-            gameObject.SetActive(false);
-        }
-        transform.Translate(direction.normalized * distance);
-        
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        Debug.Log("here");
+        if (collision.gameObject.name == "Range")
+            gameObject.SetActive (false);
     }
     public void Seek(Transform target)
     {
         this.target = target;
+        Launch();
     }
 }
